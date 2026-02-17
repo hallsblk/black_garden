@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://o674rg7qnjuf"]
 
 [ext_resource type="PackedScene" uid="uid://cjgfo6w515nom" path="res://jogador.tscn" id="1_8wk5o"]
-[ext_resource type="PackedScene" uid="uid://oj64x82nrm1i" path="res://igual.tscn" id="2_4eokt"]
-[ext_resource type="PackedScene" uid="uid://dsmmn0wobw4ft" path="res://locker.tscn" id="3_el3ip"]
+[ext_resource type="PackedScene" uid="uid://b7lu1t4u43ymp" path="res://ativador.tscn" id="3_el3ip"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8wk5o"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,12 +15,6 @@ background_mode = 2
 sky = SubResource("Sky_4eokt")
 tonemap_mode = 2
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_el3ip"]
-vertices = PackedVector3Array(-9.717906, 0.5, -9.717906, -9.717906, 0.5, 9.782094, 9.782094, 0.5, 9.782094, 9.782094, 0.5, -9.717906)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
-geometry_source_geometry_mode = 1
-agent_radius = 0.75
-
 [node name="Testes" type="Node3D" unique_id=371473650]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=257409731]
@@ -31,7 +24,7 @@ environment = SubResource("Environment_el3ip")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Mundo" type="Node3D" parent="." unique_id=1256731499 groups=["navigation_mesh_source_group"]]
+[node name="Mundo" type="Node3D" parent="." unique_id=1256731499]
 
 [node name="Chao" type="CSGBox3D" parent="Mundo" unique_id=248019492]
 transform = Transform3D(20.935812, 0, 0, 0, 1, 0, 0, 0, 20.935812, 0, -0.5, 0)
@@ -39,12 +32,7 @@ use_collision = true
 
 [node name="Jogador" parent="." unique_id=1762943836 groups=["Jogador"] instance=ExtResource("1_8wk5o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 3
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1727449708]
-navigation_mesh = SubResource("NavigationMesh_el3ip")
-
-[node name="Igual" parent="." unique_id=2099078168 instance=ExtResource("2_4eokt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3166685, 0.49999952, -3.7482877)
-
-[node name="Locker" parent="." unique_id=1247976728 instance=ExtResource("3_el3ip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 0, 5.4)
+[node name="Node3D" parent="." unique_id=1357093334 instance=ExtResource("3_el3ip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9460206, 0.5, -3.2420115)

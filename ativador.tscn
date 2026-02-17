@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b7lu1t4u43ymp"]
+
+[ext_resource type="Script" uid="uid://ovjo6mxww7yn" path="res://area_3d.gd" id="1_uguhq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cp5l4"]
+size = Vector3(1, 2.324707, 1)
+
+[node name="Ativador" type="Node3D" unique_id=1357093334]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2045777512]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_uguhq")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Area3D" unique_id=1432040296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67211914, 0)
+size = Vector3(1, 2.3442383, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=855112391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6623535, 0)
+shape = SubResource("BoxShape3D_cp5l4")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

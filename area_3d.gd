@@ -1,5 +1,6 @@
 extends Area3D
-
+var item = preload("res://item.tscn")
+@onready var ativador: Node3D = $".."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,4 +13,8 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	print("colidiu")
+	var chamar = body.get_tree().get_first_node_in_group("controlador")
+	var instance = item.instantiate()
+	ativador.add_child(instance)
+	queue_free()
+	
