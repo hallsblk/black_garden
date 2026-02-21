@@ -1,4 +1,23 @@
 [gd_scene format=3 uid="uid://swb1c07pwj13"]
 
-[node name="CSGBox3D" type="CSGBox3D" unique_id=271924660]
-transform = Transform3D(0.98154265, 0, 0, 0, 0.98154265, 0, 0, 0, 0.98154265, 0, 0.5, 0)
+[ext_resource type="Script" uid="uid://c3chvljkc3yv" path="res://item.gd" id="1_tnite"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tnite"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ttk8k"]
+
+[node name="Item" type="Node3D" unique_id=616153958]
+
+[node name="Item" type="RigidBody3D" parent="." unique_id=1671704548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3890536, 0)
+script = ExtResource("1_tnite")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Item" unique_id=1267079410]
+transform = Transform3D(0.35063815, 0, 0, 0, 0.35063815, 0, 0, 0, 0.35063815, 0, 0, 0)
+mesh = SubResource("BoxMesh_tnite")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Item" unique_id=2005644045]
+transform = Transform3D(0.54302335, 0, 0, 0, 0.54302335, 0, 0, 0, 0.54302335, 0, 0, 0)
+shape = SubResource("BoxShape3D_ttk8k")
+
+[connection signal="body_entered" from="Item" to="Item" method="_on_body_entered"]

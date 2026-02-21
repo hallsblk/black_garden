@@ -2,7 +2,7 @@ extends CharacterBody3D
 @onready var skin: MeshInstance3D = %Skin
 @onready var pivot: Node3D = %Pivot
 @onready var camera_3d: Camera3D = %Camera3D
-
+var camera_activated = true
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -11,8 +11,13 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 func _input(event):
-	if event.is_action_pressed("ui_cancel"): get_tree().quit()
-	_camera_control(event)
+	if event.is_action_pressed("ui_cancel"):
+		camera_activated = not camera_activated
+		print(camera_activated)
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if camera_activated == true:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		_camera_control(event)
 
 func _camera_control(event):
 	if event is InputEventMouseMotion:
