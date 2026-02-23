@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://o674rg7qnjuf"]
 
 [ext_resource type="PackedScene" uid="uid://cjgfo6w515nom" path="res://jogador.tscn" id="1_8wk5o"]
+[ext_resource type="PackedScene" uid="uid://oj64x82nrm1i" path="res://igual.tscn" id="3_27r4d"]
 [ext_resource type="PackedScene" uid="uid://b7lu1t4u43ymp" path="res://ativador.tscn" id="3_el3ip"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8wk5o"]
@@ -15,6 +16,12 @@ background_mode = 2
 sky = SubResource("Sky_4eokt")
 tonemap_mode = 2
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_4eokt"]
+vertices = PackedVector3Array(9.782094, 0.5, -2.717906, 6.782094, 0.5, -2.717906, 6.282094, 0.5, -1.467906, 9.782094, 0.5, 9.782094, 4.032094, 0.5, -3.717906, 4.782094, 0.5, -4.217906, 4.782094, 0.5, -9.717906, -9.717906, 0.5, -9.717906, 4.032094, 0.5, -1.967906, 4.532094, 0.5, -1.467906, -9.717906, 0.5, 9.782094, 6.282094, 0.5, -4.217906, 9.782094, 0.5, -9.717906)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(7, 4, 8), PackedInt32Array(9, 2, 3), PackedInt32Array(9, 3, 8), PackedInt32Array(8, 3, 10), PackedInt32Array(8, 10, 7), PackedInt32Array(1, 11, 0), PackedInt32Array(0, 11, 12), PackedInt32Array(12, 11, 6), PackedInt32Array(11, 5, 6)]
+geometry_source_geometry_mode = 1
+agent_radius = 0.75
+
 [node name="Testes" type="Node3D" unique_id=371473650]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=257409731]
@@ -24,7 +31,10 @@ environment = SubResource("Environment_el3ip")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Mundo" type="Node3D" parent="." unique_id=1256731499]
+[node name="Mundo" type="Node3D" parent="." unique_id=1256731499 groups=["navigation_mesh_source_group"]]
+
+[node name="Ativador" parent="Mundo" unique_id=1357093334 instance=ExtResource("3_el3ip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4529476, 0.5, -2.9573221)
 
 [node name="Chao" type="CSGBox3D" parent="Mundo" unique_id=248019492]
 transform = Transform3D(20.935812, 0, 0, 0, 1, 0, 0, 0, 20.935812, 0, -0.5, 0)
@@ -32,8 +42,11 @@ use_collision = true
 collision_mask = 5
 
 [node name="Jogador" parent="." unique_id=1762943836 groups=["Jogador"] instance=ExtResource("1_8wk5o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.453505, 0.5, 8.028732)
 collision_layer = 3
 
-[node name="Ativador" parent="." unique_id=1357093334 instance=ExtResource("3_el3ip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4529476, 0.5, -2.9573221)
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1506866018]
+navigation_mesh = SubResource("NavigationMesh_4eokt")
+
+[node name="Igual" parent="." unique_id=291371874 instance=ExtResource("3_27r4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5777, 4.7683716e-07, -8.081041)

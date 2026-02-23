@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://oj64x82nrm1i"]
+
+[ext_resource type="Script" uid="uid://jn2c1lcji6y4" path="res://igual.gd" id="1_wc4b7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wc4b7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wc4b7"]
+
+[node name="Igual" type="CharacterBody3D" unique_id=291371874]
+script = ExtResource("1_wc4b7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1443192112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_wc4b7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=807928383]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49999988, 0)
+shape = SubResource("BoxShape3D_wc4b7")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1119934440]
+target_desired_distance = 1.5
