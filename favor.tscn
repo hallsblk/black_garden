@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b534ddrqtgos6"]
+
+[ext_resource type="Script" uid="uid://coj7qt52ghhea" path="res://rigid_body_3d.gd" id="1_qvt0b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ylq1f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tko45"]
+
+[node name="Favor" type="Node3D" unique_id=1993913099]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=245816224]
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_qvt0b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1241783652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_ylq1f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1699274497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_tko45")
+
+[connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]

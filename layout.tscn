@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bm0a2ck0igrn7"]
+
+[ext_resource type="Script" uid="uid://b2hqd0w4pxdgb" path="res://layout.gd" id="1_v6hxy"]
+
+[node name="Layout" type="Control" unique_id=1536631520]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v6hxy")
+
+[node name="Button" type="Button" parent="." unique_id=629576606]
+process_mode = 3
+layout_mode = 0
+offset_left = 34.0
+offset_top = 157.0
+offset_right = 77.0
+offset_bottom = 188.0
+text = "clica"
+
+[node name="Button2" type="Button" parent="." unique_id=1005747872]
+process_mode = 3
+layout_mode = 0
+offset_left = 137.0
+offset_top = 157.0
+offset_right = 204.0
+offset_bottom = 188.0
+text = "cancela"
+
+[node name="Label" type="Label" parent="." unique_id=9100580 groups=["dialogo"]]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 76.0
+offset_right = 263.0
+offset_bottom = 99.0
+text = "teste"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]

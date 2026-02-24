@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cjgfo6w515nom" path="res://jogador.tscn" id="1_8wk5o"]
 [ext_resource type="PackedScene" uid="uid://oj64x82nrm1i" path="res://igual.tscn" id="3_27r4d"]
 [ext_resource type="PackedScene" uid="uid://b7lu1t4u43ymp" path="res://ativador.tscn" id="3_el3ip"]
+[ext_resource type="PackedScene" uid="uid://b534ddrqtgos6" path="res://favor.tscn" id="4_27r4d"]
+[ext_resource type="PackedScene" uid="uid://bm0a2ck0igrn7" path="res://layout.tscn" id="5_2fb0e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8wk5o"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -50,3 +52,9 @@ navigation_mesh = SubResource("NavigationMesh_4eokt")
 
 [node name="Igual" parent="." unique_id=291371874 instance=ExtResource("3_27r4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5777, 4.7683716e-07, -8.081041)
+
+[node name="Favor" parent="." unique_id=1906623696 instance=ExtResource("4_27r4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8389363, 0, 6.5440035)
+
+[node name="Layout" parent="." unique_id=1536631520 groups=["layout"] instance=ExtResource("5_2fb0e")]
+visible = false

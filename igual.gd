@@ -18,14 +18,19 @@ func _physics_process(delta: float) -> void:
 	
 	var direction = global_position.direction_to(nextPathPosition)
 	var calculateVelocity = direction * SPEED
-	velocity = Vector3(calculateVelocity.x,velocity.y,calculateVelocity.z)
+	if navigation_agent_3d.distance_to_target() <= 5.0:
+		#print(navigation_agent_3d.distance_to_target())
+		velocity = Vector3(calculateVelocity.x,velocity.y,calculateVelocity.z)
+		look_at(target.global_position)
+	else:
+		velocity = Vector3.ZERO
 	
-	look_at(target.global_position)
 	
 
 	move_and_slide()
 	
 	_update_target_position()
+
 
 func _update_target_position():
 	navigation_agent_3d.target_position = target.global_transform.origin
