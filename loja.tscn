@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dhxflpnvj57df"]
+
+[ext_resource type="Script" uid="uid://bfeog3xsipqel" path="res://vend_machine.gd" id="1_atv0x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mraui"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_atv0x"]
+size = Vector3(1, 2.1000001, 1)
+
+[node name="Loja" type="Node3D" unique_id=1224961536]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=532771430]
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_atv0x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1436268161]
+transform = Transform3D(1, 0, 0, 0, 2.062882, 0, 0, 0, 1, 0, 1.0999999, 0)
+mesh = SubResource("BoxMesh_mraui")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=212899843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1075438, 0)
+shape = SubResource("BoxShape3D_atv0x")
+
+[connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]

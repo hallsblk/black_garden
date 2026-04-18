@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://b7lu1t4u43ymp" path="res://ativador.tscn" id="3_el3ip"]
 [ext_resource type="PackedScene" uid="uid://b534ddrqtgos6" path="res://favor.tscn" id="4_27r4d"]
 [ext_resource type="PackedScene" uid="uid://bm0a2ck0igrn7" path="res://layout.tscn" id="5_2fb0e"]
+[ext_resource type="PackedScene" uid="uid://dhxflpnvj57df" path="res://loja.tscn" id="6_qewa0"]
+[ext_resource type="PackedScene" uid="uid://bpuqapch61ukh" path="res://l_shop.tscn" id="7_2s60h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8wk5o"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -58,3 +60,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8389363, 0, 6.5440035)
 
 [node name="Layout" parent="." unique_id=1536631520 groups=["layout"] instance=ExtResource("5_2fb0e")]
 visible = false
+
+[node name="Loja" parent="." unique_id=1224961536 instance=ExtResource("6_qewa0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.815466, 0, 8.129642)
+
+[node name="l_shop" parent="." unique_id=2119417869 instance=ExtResource("7_2s60h")]

@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var target: Node3D
 
-const SPEED = 4.0
+const SPEED = 3.0
 const JUMP_VELOCITY = 4.5
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D

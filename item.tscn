@@ -17,7 +17,7 @@ transform = Transform3D(0.35063815, 0, 0, 0, 0.35063815, 0, 0, 0, 0.35063815, 0,
 mesh = SubResource("BoxMesh_tnite")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Item" unique_id=2005644045]
-transform = Transform3D(0.54302335, 0, 0, 0, 0.54302335, 0, 0, 0, 0.54302335, 0, 0, 0)
+transform = Transform3D(0.3530048, 0, 0, 0, 0.3530048, 0, 0, 0, 0.3530048, 0, 0, 0)
 shape = SubResource("BoxShape3D_ttk8k")
 
 [connection signal="body_entered" from="Item" to="Item" method="_on_body_entered"]
